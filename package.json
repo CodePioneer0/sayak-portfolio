@@ -1,12 +1,11 @@
 {
   "name": "portfolio",
-  "homepage": "https://CodePioneer0.github.io/sayak-portfolio/",
+  "homepage": "https://sayaksen.me/",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
-  "scripts": {
+  "type": "module",  "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && copy CNAME dist\\CNAME",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
