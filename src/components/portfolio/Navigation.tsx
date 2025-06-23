@@ -20,24 +20,33 @@ const Navigation = ({ darkMode }: NavigationProps) => {
     { id: 'education', label: 'Education' },
     { id: 'contact', label: 'Contact' }
   ];
-
   useEffect(() => {
+    let ticking = false;
+    
     const handleScroll = () => {
-      const sections = document.querySelectorAll('section[id]');
-      const scrollPos = window.scrollY + 100;
-      
-      // Check if scrolled for background opacity
-      setIsScrolled(window.scrollY > 50);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const sections = document.querySelectorAll('section[id]');
+          const scrollPos = window.scrollY + 100;
 
-      sections.forEach((section) => {
-        const element = section as HTMLElement;
-        if (scrollPos >= element.offsetTop && scrollPos < element.offsetTop + element.offsetHeight) {
-          setActiveSection(element.id);
-        }
-      });
+          // Check if scrolled for background opacity
+          setIsScrolled(window.scrollY > 50);
+
+          sections.forEach((section) => {
+            const element = section as HTMLElement;
+            if (scrollPos >= element.offsetTop && scrollPos < element.offsetTop + element.offsetHeight) {
+              setActiveSection(element.id);
+            }
+          });
+          
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    // Throttle scroll events
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

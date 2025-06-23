@@ -53,10 +53,19 @@ const ProjectCard3D = ({ project, index, inView }: ProjectCard3DProps) => {
       animate={inView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className="group relative perspective-1000"
-    >
-      {/* 3D Background Canvas */}
+    >      {/* 3D Background Canvas */}
       <div className="absolute inset-0 rounded-2xl overflow-hidden">
-        <Canvas camera={{ position: [0, 0, 3], fov: 50 }}>
+        <Canvas 
+          camera={{ position: [0, 0, 3], fov: 50 }}
+          gl={{
+            alpha: true,
+            antialias: false, // Disable for performance
+            powerPreference: "high-performance",
+            stencil: false
+          }}
+          dpr={Math.min(window.devicePixelRatio, 2)}
+          performance={{ min: 0.5 }}
+        >
           <ambientLight intensity={0.4} />
           <pointLight position={[2, 2, 2]} intensity={0.6} color="#4ecdc4" />
           <FloatingCard />

@@ -6,9 +6,8 @@ import * as THREE from 'three';
 const FloatingOrbs = () => {
   const groupRef = useRef<THREE.Group>(null);
   const { mouse } = useThree();
-
   const orbs = useMemo(() => {
-    return Array.from({ length: 15 }, (_, i) => ({
+    return Array.from({ length: 8 }, (_, i) => ({ // Reduced from 15 to 8
       position: [
         (Math.random() - 0.5) * 20,
         (Math.random() - 0.5) * 20,
@@ -119,7 +118,18 @@ interface Background3DProps {
 const Background3D = ({ className = "" }: Background3DProps) => {
   return (
     <div className={`absolute inset-0 ${className}`}>
-      <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
+      <Canvas 
+        camera={{ position: [0, 0, 5], fov: 75 }}
+        gl={{
+          alpha: true,
+          antialias: false, // Disable for performance
+          powerPreference: "high-performance",
+          stencil: false,
+          depth: false
+        }}
+        dpr={Math.min(window.devicePixelRatio, 2)} // Limit pixel ratio
+        performance={{ min: 0.5 }}
+      >
         <ambientLight intensity={0.4} />
         <pointLight position={[10, 10, 10]} intensity={0.6} color="#ff6b35" />
         <pointLight position={[-10, -10, -10]} intensity={0.4} color="#4ecdc4" />

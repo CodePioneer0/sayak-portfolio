@@ -256,10 +256,9 @@ const SpacetimeGrid = () => {
 
 const LensedObjects = () => {
   const objectsRef = useRef<THREE.Group>(null);
-
   const objects = useMemo(() => {
     const temp = [];
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 15; i++) { // Reduced from 30 to 15
       temp.push({
         position: [
           (Math.random() - 0.5) * 40,
@@ -329,7 +328,15 @@ const GravitationalLensing: React.FC<{ className?: string }> = ({
     <div className={`absolute inset-0 ${className}`}>
       <Canvas
         camera={{ position: [0, 5, 15], fov: 75 }}
-        gl={{ alpha: true, antialias: true }}
+        gl={{ 
+          alpha: true, 
+          antialias: false, // Disable antialiasing for better performance
+          powerPreference: "high-performance",
+          stencil: false,
+          depth: false
+        }}
+        dpr={Math.min(window.devicePixelRatio, 2)} // Limit pixel ratio for performance
+        performance={{ min: 0.5 }} // Enable performance monitoring
       >
         <ambientLight intensity={0.2} />
         <pointLight position={[10, 10, 10]} intensity={0.5} color="#4ecdc4" />

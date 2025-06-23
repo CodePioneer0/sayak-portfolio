@@ -24,12 +24,12 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-gray-900/60" />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
-        >
+      <div className="relative z-10 text-center px-4">      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.5 }}
+        className="transform-gpu will-change-transform"
+      >
           <motion.h1
             className="text-6xl md:text-8xl font-bold text-white mb-6 leading-tight"
             initial={{ opacity: 0, scale: 0.5, rotateX: -90 }}

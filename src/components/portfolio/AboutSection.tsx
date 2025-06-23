@@ -47,12 +47,11 @@ const AboutSection = () => {
         </motion.h2>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
-          <motion.div
+          {/* Text Content */}          <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-6"
+            className="space-y-6 transform-gpu will-change-transform"
           >
             <motion.div
               className="backdrop-blur-md bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-orange-500/30 transition-all duration-300"
