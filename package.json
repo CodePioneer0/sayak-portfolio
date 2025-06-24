@@ -3,7 +3,8 @@
   "homepage": "https://sayaksen.me/",
   "private": true,
   "version": "0.0.0",
-  "type": "module",  "scripts": {
+  "type": "module",
+  "scripts": {
     "dev": "vite",
     "build": "vite build",
     "postbuild": "node -e \"const fs = require('fs'); if (fs.existsSync('CNAME')) { fs.copyFileSync('CNAME', 'dist/CNAME'); }\"",

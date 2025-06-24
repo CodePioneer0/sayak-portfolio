@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, ReactNode } from "react";
 
 interface Props {
   children: ReactNode;
@@ -22,9 +22,9 @@ class ErrorBoundary extends Component<Props, State> {
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     // Log error to monitoring service in production
-    if (process.env.NODE_ENV === 'production') {
+    if (process.env.NODE_ENV === "production") {
       // You can integrate with error tracking services like Sentry here
-      console.error('Error caught by boundary:', error, errorInfo);
+      console.error("Error caught by boundary:", error, errorInfo);
     }
   }
 
@@ -34,9 +34,12 @@ class ErrorBoundary extends Component<Props, State> {
         this.props.fallback || (
           <div className="min-h-screen flex items-center justify-center bg-black text-white">
             <div className="text-center p-8">
-              <h1 className="text-4xl font-bold text-red-500 mb-4">Oops! Something went wrong</h1>
+              <h1 className="text-4xl font-bold text-red-500 mb-4">
+                Oops! Something went wrong
+              </h1>
               <p className="text-gray-300 mb-6">
-                We're sorry for the inconvenience. Please refresh the page to try again.
+                We're sorry for the inconvenience. Please refresh the page to
+                try again.
               </p>
               <button
                 onClick={() => window.location.reload()}
