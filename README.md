@@ -79,26 +79,31 @@ npm run lint # or bun run lint or yarn lint
 The project is optimized for deployment on modern static hosting providers:
 
 ### Vercel (Recommended)
+
 1. Install Vercel CLI: `npm i -g vercel`
 2. Run `vercel` in the project directory
 3. Follow the prompts to deploy
 
 ### Netlify
+
 1. Build: `npm run build`
 2. Deploy folder: `dist`
 3. Or drag & drop the `dist` folder to Netlify
 
 ### GitHub Pages
+
 1. Update `vite.config.ts` with your GitHub repository base path
 2. Run `npm run build`
 3. Deploy the `dist` folder to your gh-pages branch
 
 ### Other Providers
+
 The `dist` folder contains all static assets and can be deployed to any static hosting provider.
 
 ## 🎨 Customization
 
 ### Content
+
 - Update sections in `src/components/portfolio/` directory:
   - `HeroSection.tsx` - Hero introduction and title
   - `AboutSection.tsx` - About me content
@@ -108,11 +113,13 @@ The `dist` folder contains all static assets and can be deployed to any static h
   - `ContactSection.tsx` - Contact information
 
 ### Styling
+
 - Modify `tailwind.config.ts` for color schemes and animations
 - Update `src/index.css` for global styles
 - Customize animations in `src/components/portfolio/SimpleCodeMatrix.tsx`
 
 ### Performance
+
 - Adjust animation settings in `src/utils/performance.ts`
 - Modify particle counts and effects for different devices
 - Update Vite configuration in `vite.config.ts` for build optimization
