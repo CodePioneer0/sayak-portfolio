@@ -13,23 +13,57 @@ const ContactSection = () => {
     email: '',
     subject: '',
     message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  });  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState<{[key: string]: string}>({});
+
+  const validateForm = () => {
+    const newErrors: {[key: string]: string} = {};
+    
+    if (!formData.name.trim()) newErrors.name = 'Name is required';
+    if (!formData.email.trim()) newErrors.email = 'Email is required';
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Email is invalid';
+    if (!formData.subject.trim()) newErrors.subject = 'Subject is required';
+    if (!formData.message.trim()) newErrors.message = 'Message is required';
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      toast({
+        title: "Validation Error",
+        description: "Please fill in all required fields correctly.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon!",
-    });
-    
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    setIsSubmitting(false);
+    try {
+      // In a real app, you'd send this to your backend/API
+      // For now, we'll simulate the submission
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for reaching out. I'll get back to you soon!",
+      });
+      
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      setErrors({});
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -38,12 +72,11 @@ const ContactSection = () => {
       [e.target.name]: e.target.value
     }));
   };
-
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub', color: 'hover:text-gray-300' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn', color: 'hover:text-blue-400' },
-    { icon: Twitter, href: '#', label: 'Twitter', color: 'hover:text-blue-300' },
-    { icon: Mail, href: 'mailto:alex@example.com', label: 'Email', color: 'hover:text-red-400' }
+    { icon: Github, href: 'https://github.com/sayaksen', label: 'GitHub', color: 'hover:text-gray-300' },
+    { icon: Linkedin, href: 'https://linkedin.com/in/sayaksen', label: 'LinkedIn', color: 'hover:text-blue-400' },
+    { icon: Twitter, href: 'https://twitter.com/sayaksen', label: 'Twitter', color: 'hover:text-blue-300' },
+    { icon: Mail, href: 'mailto:sayak@sayaksen.me', label: 'Email', color: 'hover:text-red-400' }
   ];
 
   return (
@@ -79,8 +112,7 @@ const ContactSection = () => {
             <div className="backdrop-blur-md bg-white/5 rounded-2xl p-8 border border-white/10">
               <h3 className="text-2xl font-bold text-white mb-6">Send Message</h3>
               
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-6">                <div className="grid md:grid-cols-2 gap-6">
                   <motion.div
                     whileFocus={{ scale: 1.02 }}
                     className="relative"
@@ -92,8 +124,13 @@ const ContactSection = () => {
                       onChange={handleChange}
                       placeholder="Your Name"
                       required
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition-all duration-300"
+                      className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-gray-400 focus:outline-none transition-all duration-300 ${
+                        errors.name ? 'border-red-500 focus:border-red-400' : 'border-white/20 focus:border-blue-400'
+                      }`}
                     />
+                    {errors.name && (
+                      <p className="text-red-400 text-sm mt-1">{errors.name}</p>
+                    )}
                   </motion.div>
                   
                   <motion.div
@@ -107,8 +144,13 @@ const ContactSection = () => {
                       onChange={handleChange}
                       placeholder="Your Email"
                       required
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition-all duration-300"
+                      className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-gray-400 focus:outline-none transition-all duration-300 ${
+                        errors.email ? 'border-red-500 focus:border-red-400' : 'border-white/20 focus:border-blue-400'
+                      }`}
                     />
+                    {errors.email && (
+                      <p className="text-red-400 text-sm mt-1">{errors.email}</p>
+                    )}
                   </motion.div>
                 </div>
 
@@ -123,8 +165,13 @@ const ContactSection = () => {
                     onChange={handleChange}
                     placeholder="Subject"
                     required
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition-all duration-300"
+                    className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-gray-400 focus:outline-none transition-all duration-300 ${
+                      errors.subject ? 'border-red-500 focus:border-red-400' : 'border-white/20 focus:border-blue-400'
+                    }`}
                   />
+                  {errors.subject && (
+                    <p className="text-red-400 text-sm mt-1">{errors.subject}</p>
+                  )}
                 </motion.div>
 
                 <motion.div
@@ -138,8 +185,13 @@ const ContactSection = () => {
                     placeholder="Your Message"
                     rows={5}
                     required
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition-all duration-300 resize-none"
+                    className={`w-full px-4 py-3 bg-white/10 border rounded-lg text-white placeholder-gray-400 focus:outline-none transition-all duration-300 resize-none ${
+                      errors.message ? 'border-red-500 focus:border-red-400' : 'border-white/20 focus:border-blue-400'
+                    }`}
                   />
+                  {errors.message && (
+                    <p className="text-red-400 text-sm mt-1">{errors.message}</p>
+                  )}
                 </motion.div>
 
                 <motion.button

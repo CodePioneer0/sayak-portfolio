@@ -405,7 +405,6 @@ const SimpleCodeMatrix = ({ className = "" }: SimpleCodeMatrixProps) => {
       }
     };
   }, [animate]);
-
   return (
     <div className={`absolute inset-0 ${className}`}>
       <canvas
@@ -415,6 +414,8 @@ const SimpleCodeMatrix = ({ className = "" }: SimpleCodeMatrixProps) => {
           background: "transparent",
           willChange: "transform",
         }}
+        aria-hidden="true"
+        role="presentation"
       />
     </div>
   );
