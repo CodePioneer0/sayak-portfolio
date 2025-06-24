@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import FloatingCodeMatrix from "./effects/FloatingCodeMatrix";
+import SimpleCodeMatrix from "./SimpleCodeMatrix";
 
 const HeroSection = () => {
   const scrollToNext = () => {
@@ -15,13 +15,12 @@ const HeroSection = () => {
     <section
       id="home"
       className="relative h-screen flex items-center justify-center overflow-hidden"
-    >      {/* Floating Code Matrix 3D Background */}
-      <FloatingCodeMatrix />
-
-      {/* Enhanced Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-900/30 via-transparent to-teal-900/30" />
-      <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-gray-900/60" />
-
+    >
+      {" "}
+      {/* 2D Code Matrix Background */}
+      <SimpleCodeMatrix /> {/* Enhanced Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-blue-950/30 to-slate-900/50" />
+      <div className="absolute inset-0 bg-gradient-radial from-transparent via-blue-950/20 to-black/80" />
       {/* Content */}
       <div className="relative z-10 text-center px-4">
         {" "}
@@ -37,7 +36,8 @@ const HeroSection = () => {
             animate={{ opacity: 1, scale: 1, rotateX: 0 }}
             transition={{ duration: 1.2, delay: 0.8, type: "spring" }}
           >
-            <span className="bg-gradient-to-r from-orange-400 via-red-400 to-teal-400 bg-clip-text text-transparent">
+            {" "}
+            <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent drop-shadow-2xl">
               Sayak Sen
             </span>
           </motion.h1>
@@ -48,10 +48,11 @@ const HeroSection = () => {
             transition={{ duration: 1, delay: 1.2 }}
             className="mb-8"
           >
-            <h2 className="text-2xl md:text-4xl text-gray-300 mb-4">
+            {" "}
+            <h2 className="text-2xl md:text-4xl text-blue-100 mb-4 font-light">
               Student in Tech
             </h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
               Crafting digital experiences with cutting-edge technologies and
               creative problem-solving
             </p>
@@ -63,27 +64,27 @@ const HeroSection = () => {
             transition={{ duration: 1, delay: 1.6 }}
             className="space-x-4"
           >
+            {" "}
             <motion.button
               onClick={scrollToNext}
-              className="px-8 py-4 bg-gradient-to-r from-orange-500 via-red-500 to-teal-500 text-white rounded-full font-semibold text-lg hover:shadow-2xl hover:shadow-orange-500/25 transition-all duration-300"
+              className="px-8 py-4 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 text-white rounded-full font-semibold text-lg hover:shadow-2xl hover:shadow-blue-500/30 transition-all duration-300 backdrop-blur-sm border border-blue-400/20"
               whileHover={{
                 scale: 1.05,
                 y: -2,
-                boxShadow: "0 20px 40px rgba(255, 107, 53, 0.4)",
+                boxShadow: "0 20px 40px rgba(59, 130, 246, 0.5)",
               }}
               whileTap={{ scale: 0.95 }}
             >
               Explore My Work
             </motion.button>
-
             <motion.a
               href="#contact"
-              className="px-8 py-4 border-2 border-white/30 text-white rounded-full font-semibold text-lg hover:bg-white/10 transition-all duration-300 inline-block backdrop-blur-sm"
+              className="px-8 py-4 border-2 border-blue-400/40 text-white rounded-full font-semibold text-lg hover:bg-blue-500/20 transition-all duration-300 inline-block backdrop-blur-sm hover:border-cyan-300/60"
               whileHover={{
                 scale: 1.05,
                 y: -2,
-                borderColor: "rgba(255, 255, 255, 0.6)",
-                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                borderColor: "rgba(34, 211, 238, 0.8)",
+                backgroundColor: "rgba(59, 130, 246, 0.2)",
               }}
               whileTap={{ scale: 0.95 }}
             >
@@ -92,7 +93,6 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
       </div>
-
       {/* Enhanced Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -108,15 +108,16 @@ const HeroSection = () => {
         onClick={scrollToNext}
         whileHover={{ scale: 1.2 }}
       >
+        {" "}
         <div className="flex flex-col items-center">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center mb-2">
+          <div className="w-6 h-10 border-2 border-blue-400/60 rounded-full flex justify-center mb-2">
             <motion.div
-              className="w-1 h-3 bg-white rounded-full mt-2"
+              className="w-1 h-3 bg-blue-400 rounded-full mt-2"
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             />
           </div>
-          <ChevronDown className="text-white w-6 h-6" />
+          <ChevronDown className="text-blue-400 w-6 h-6" />
         </div>
       </motion.div>
     </section>

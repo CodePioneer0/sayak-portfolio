@@ -19,21 +19,29 @@ export default defineConfig({
     // Optimize for performance
     target: "es2015",
     minify: "terser",
+    sourcemap: false, // Disable source maps for production
     terserOptions: {
       compress: {
         drop_console: true,
         drop_debugger: true,
+        pure_funcs: ["console.log", "console.info"], // Remove specific console calls
       },
     },
     rollupOptions: {
-      output: {        manualChunks: {
-          three: ["three", "@react-three/fiber", "@react-three/drei"],
+      output: {
+        manualChunks: {
           framer: ["framer-motion"],
           ui: ["@radix-ui/react-slot", "@radix-ui/react-toast"],
+          utils: ["clsx", "tailwind-merge", "class-variance-authority"],
         },
+        // Optimize chunk file names
+        chunkFileNames: "assets/js/[name]-[hash].js",
+        entryFileNames: "assets/js/[name]-[hash].js",
+        assetFileNames: "assets/[ext]/[name]-[hash].[ext]",
       },
     },
-  },  optimizeDeps: {
-    include: ["three", "@react-three/fiber", "@react-three/drei", "framer-motion"],
+  },
+  optimizeDeps: {
+    include: ["framer-motion"],
   },
 });

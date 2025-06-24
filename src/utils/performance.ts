@@ -20,11 +20,14 @@ export const performanceConfig = {
 };
 
 // Throttle function for scroll events
-export const throttle = (func: Function, limit: number) => {
+export const throttle = <T extends unknown[]>(
+  func: (...args: T) => void,
+  limit: number
+) => {
   let inThrottle: boolean;
-  return function (this: any, ...args: any[]) {
+  return function (...args: T) {
     if (!inThrottle) {
-      func.apply(this, args);
+      func(...args);
       inThrottle = true;
       setTimeout(() => (inThrottle = false), limit);
     }
@@ -32,12 +35,14 @@ export const throttle = (func: Function, limit: number) => {
 };
 
 // RAF-based throttle for smoother animations
-export const rafThrottle = (func: Function) => {
+export const rafThrottle = <T extends unknown[]>(
+  func: (...args: T) => void
+) => {
   let ticking = false;
-  return function (this: any, ...args: any[]) {
+  return function (...args: T) {
     if (!ticking) {
       requestAnimationFrame(() => {
-        func.apply(this, args);
+        func(...args);
         ticking = false;
       });
       ticking = true;

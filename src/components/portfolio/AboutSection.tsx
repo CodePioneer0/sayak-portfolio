@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import FloatingCodeMatrix from "./effects/FloatingCodeMatrix";
+import SimpleCodeMatrix from "./SimpleCodeMatrix";
 
 const AboutSection = () => {
   const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
@@ -24,13 +24,12 @@ const AboutSection = () => {
       return () => clearInterval(timer);
     }
   }, [inView, fullText]);
-
   const skills = [
     "React",
     "TypeScript",
     "Node.js",
     "Python",
-    "Three.js",
+    "JavaScript",
     "MongoDB",
     "Next.js",
     "GraphQL",
@@ -40,21 +39,22 @@ const AboutSection = () => {
     "Figma",
   ];
 
-  return (    <section
+  return (
+    <section
       id="about"
       ref={ref}
       className="min-h-screen py-20 px-4 relative overflow-hidden"
     >
-      <FloatingCodeMatrix className="opacity-20" />
+      <SimpleCodeMatrix className="opacity-60" />
 
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-orange-900/20 to-teal-900/20" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-blue-950/40 to-slate-900/60" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.h2
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-orange-400 to-teal-400 bg-clip-text text-transparent"
+          className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent"
         >
           About Me
         </motion.h2>
@@ -67,24 +67,24 @@ const AboutSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-6 transform-gpu will-change-transform"
           >
+            {" "}
             <motion.div
-              className="backdrop-blur-md bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-orange-500/30 transition-all duration-300"
+              className="backdrop-blur-md bg-black/20 rounded-2xl p-8 border border-blue-500/20 hover:border-blue-400/40 transition-all duration-300 shadow-2xl"
               whileHover={{
                 scale: 1.02,
-                boxShadow: "0 20px 40px rgba(255, 107, 53, 0.1)",
+                boxShadow: "0 20px 40px rgba(59, 130, 246, 0.15)",
               }}
             >
               <p className="text-lg text-gray-300 leading-relaxed min-h-[120px]">
                 {typewriterText}
                 <span className="animate-pulse">|</span>
               </p>
-            </motion.div>
-
+            </motion.div>{" "}
             <motion.div
-              className="backdrop-blur-md bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-teal-500/30 transition-all duration-300"
+              className="backdrop-blur-md bg-black/20 rounded-2xl p-8 border border-blue-500/20 hover:border-cyan-400/40 transition-all duration-300 shadow-2xl"
               whileHover={{
                 scale: 1.02,
-                boxShadow: "0 20px 40px rgba(78, 205, 196, 0.1)",
+                boxShadow: "0 20px 40px rgba(34, 211, 238, 0.15)",
               }}
             >
               <h3 className="text-2xl font-semibold text-white mb-4">
@@ -106,9 +106,9 @@ const AboutSection = () => {
                       scale: 1.15,
                       y: -5,
                       rotateX: 10,
-                      boxShadow: "0 10px 20px rgba(255, 107, 53, 0.3)",
+                      boxShadow: "0 10px 20px rgba(59, 130, 246, 0.4)",
                     }}
-                    className="px-4 py-2 bg-gradient-to-r from-orange-500/20 to-teal-500/20 rounded-full text-white border border-orange-500/30 hover:border-orange-400 transition-all duration-300 cursor-pointer"
+                    className="px-4 py-2 bg-gradient-to-r from-blue-600/30 to-cyan-500/30 rounded-full text-white border border-blue-400/40 hover:border-cyan-300 transition-all duration-300 cursor-pointer backdrop-blur-sm"
                   >
                     {skill}
                   </motion.span>
@@ -132,15 +132,16 @@ const AboutSection = () => {
                 transition: { duration: 0.3 },
               }}
             >
-              <div className="absolute -inset-2 bg-gradient-to-r from-orange-500 via-red-500 to-teal-500 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300 animate-pulse"></div>
-              <div className="relative backdrop-blur-md bg-gray-900/50 rounded-2xl p-8 border border-white/10 transform-gpu">
-                {/* Animated Profile Image Placeholder */}
+              {" "}
+              <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300 animate-pulse"></div>
+              <div className="relative backdrop-blur-md bg-black/40 rounded-2xl p-8 border border-blue-500/20 transform-gpu shadow-2xl">
+                {/* Animated Profile Image Placeholder */}{" "}
                 <motion.div
-                  className="w-48 h-48 mx-auto mb-6 bg-gradient-to-br from-orange-500 via-red-500 to-teal-500 rounded-full flex items-center justify-center relative overflow-hidden"
+                  className="w-48 h-48 mx-auto mb-6 bg-gradient-to-br from-blue-600 via-cyan-500 to-blue-700 rounded-full flex items-center justify-center relative overflow-hidden shadow-2xl"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                 >
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-orange-400/30 to-teal-400/30 rounded-full"
+                    className="absolute inset-0 bg-gradient-to-r from-blue-400/30 to-cyan-300/30 rounded-full"
                     animate={{ rotate: 360 }}
                     transition={{
                       duration: 20,
@@ -148,19 +149,20 @@ const AboutSection = () => {
                       ease: "linear",
                     }}
                   />
-                  <span className="text-6xl font-bold text-white z-10">SS</span>
+                  <span className="text-6xl font-bold text-white z-10 drop-shadow-lg">
+                    SS
+                  </span>
                 </motion.div>
-
                 <div className="text-center">
                   <motion.h3
                     className="text-2xl font-bold text-white mb-2"
                     whileHover={{ scale: 1.05 }}
                   >
                     Sayak Sen
-                  </motion.h3>
+                  </motion.h3>{" "}
                   <motion.p
-                    className="text-orange-400 mb-4"
-                    whileHover={{ color: "#4ecdc4" }}
+                    className="text-blue-400 mb-4 font-medium"
+                    whileHover={{ color: "#22d3ee" }}
                   >
                     Computer Science and Technology
                   </motion.p>
