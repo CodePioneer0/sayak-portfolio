@@ -26,14 +26,16 @@ export default defineConfig({
       },
     },
     rollupOptions: {
-      output: {        manualChunks: {
-          three: ["three", "@react-three/fiber", "@react-three/drei"],
+      output: {
+        manualChunks: {
+          three: ["three", "@react-three/fiber"],
           framer: ["framer-motion"],
           ui: ["@radix-ui/react-slot", "@radix-ui/react-toast"],
         },
       },
     },
-  },  optimizeDeps: {
-    include: ["three", "@react-three/fiber", "@react-three/drei", "framer-motion"],
+  },
+  optimizeDeps: {
+    include: ["three", "@react-three/fiber", "framer-motion"],
   },
 });

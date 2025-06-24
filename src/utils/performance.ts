@@ -2,28 +2,31 @@
 export const performanceConfig = {
   // Reduce motion for users who prefer reduced motion
   respectReducedMotion: true,
-  
+
   // Limit frame rate for animations
   maxFPS: 60,
-  
+
   // Throttle scroll events
   scrollThrottle: 16, // ~60fps
-  
+
   // Reduce particle counts on mobile
-  isMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
-  
+  isMobile:
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    ),
+
   // Performance monitoring
-  enablePerformanceMonitoring: process.env.NODE_ENV === 'development',
+  enablePerformanceMonitoring: process.env.NODE_ENV === "development",
 };
 
 // Throttle function for scroll events
 export const throttle = (func: Function, limit: number) => {
   let inThrottle: boolean;
-  return function(this: any, ...args: any[]) {
+  return function (this: any, ...args: any[]) {
     if (!inThrottle) {
       func.apply(this, args);
       inThrottle = true;
-      setTimeout(() => inThrottle = false, limit);
+      setTimeout(() => (inThrottle = false), limit);
     }
   };
 };
@@ -31,7 +34,7 @@ export const throttle = (func: Function, limit: number) => {
 // RAF-based throttle for smoother animations
 export const rafThrottle = (func: Function) => {
   let ticking = false;
-  return function(this: any, ...args: any[]) {
+  return function (this: any, ...args: any[]) {
     if (!ticking) {
       requestAnimationFrame(() => {
         func.apply(this, args);
@@ -44,7 +47,7 @@ export const rafThrottle = (func: Function) => {
 
 // Check for reduced motion preference
 export const prefersReducedMotion = () => {
-  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 };
 
 // Get optimal particle count based on device
@@ -57,15 +60,15 @@ export const getOptimalParticleCount = (base: number) => {
 // Performance monitoring
 export const performanceMonitor = {
   startTime: 0,
-  
+
   start() {
     this.startTime = performance.now();
   },
-  
+
   end(label: string) {
     if (performanceConfig.enablePerformanceMonitoring) {
       const duration = performance.now() - this.startTime;
       console.log(`${label}: ${duration.toFixed(2)}ms`);
     }
-  }
+  },
 };

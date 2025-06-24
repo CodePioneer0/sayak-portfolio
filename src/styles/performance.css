@@ -1,13 +1,9 @@
-/* Performance optimizations for Chrome */
-
-/* Enable hardware acceleration for better performance */
 .transform-gpu {
   transform: translateZ(0);
   backface-visibility: hidden;
   perspective: 1000px;
 }
 
-/* Optimize animations with will-change */
 .will-change-transform {
   will-change: transform;
 }
@@ -20,35 +16,29 @@
   will-change: auto;
 }
 
-/* Optimize 3D transforms */
 .preserve-3d {
   transform-style: preserve-3d;
 }
 
-/* Reduce blur for better performance */
 .backdrop-blur-performance {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
 
-/* Optimize gradients */
 .gradient-performance {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-/* Optimize box shadows */
 .shadow-performance {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Optimize scrolling */
 .scroll-smooth {
   scroll-behavior: smooth;
 }
 
-/* Contain layout shifts */
 .contain-layout {
   contain: layout;
 }
@@ -57,21 +47,17 @@
   contain: paint;
 }
 
-/* Optimize font rendering */
 .font-smooth {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Optimize for Chrome specifically */
 @supports (-webkit-appearance: none) {
   .chrome-optimized {
-    /* Chrome-specific optimizations */
     image-rendering: -webkit-optimize-contrast;
   }
 }
 
-/* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -83,10 +69,8 @@
   }
 }
 
-/* Optimize for high DPI displays */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .high-dpi-optimized {
-    /* Reduce some effects on high DPI to maintain performance */
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
   }

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import ProjectCard3D from './ProjectCard3D';
-import Background3D from './Background3D';
+import FloatingCodeMatrix from './effects/FloatingCodeMatrix';
 
 const ProjectsSection = () => {
   const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: true });
@@ -78,9 +78,8 @@ const ProjectsSection = () => {
     ? projects 
     : projects.filter(project => project.category === activeFilter);
 
-  return (
-    <section id="projects" ref={ref} className="min-h-screen py-20 px-4 relative overflow-hidden">
-      <Background3D />
+  return (    <section id="projects" ref={ref} className="min-h-screen py-20 px-4 relative overflow-hidden">
+      <FloatingCodeMatrix className="opacity-30" />
       
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-gray-900/80 to-blue-900/20" />
       

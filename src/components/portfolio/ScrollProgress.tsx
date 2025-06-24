@@ -1,16 +1,16 @@
-
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const ScrollProgress = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   useEffect(() => {
     let ticking = false;
-    
+
     const handleScroll = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
-          const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const totalHeight =
+            document.documentElement.scrollHeight - window.innerHeight;
           const progress = (window.scrollY / totalHeight) * 100;
           setScrollProgress(progress);
           ticking = false;
@@ -19,8 +19,8 @@ const ScrollProgress = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
