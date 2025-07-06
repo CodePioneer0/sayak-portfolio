@@ -79,14 +79,14 @@ export default function ProjectsSection() {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-            Featured <span className="text-cyan-400">Projects</span>
+            Featured <span className="text-accent-primary">Projects</span>
           </h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="bg-slate-800/50 rounded-xl border border-slate-700 overflow-hidden group hover:border-cyan-400/50 transition-all duration-300 transform hover:scale-105"
+                className="glass-effect rounded-xl border border-black-600 overflow-hidden group hover:border-accent-primary/50 transition-all duration-300 hover-lift"
               >
                 <img
                   src={project.image}
@@ -95,8 +95,8 @@ export default function ProjectsSection() {
                 />
                 
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-3 text-cyan-400">{project.title}</h3>
-                  <p className="text-slate-300 mb-4">{project.description}</p>
+                  <h3 className="text-xl font-semibold mb-3 text-accent-primary">{project.title}</h3>
+                  <p className="text-white-300 mb-4">{project.description}</p>
                   
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech) => (
@@ -112,14 +112,14 @@ export default function ProjectsSection() {
                   <div className="flex space-x-4">
                     <a
                       href="#"
-                      className="text-cyan-400 hover:text-cyan-300 transition-colors duration-300 flex items-center space-x-1"
+                      className="text-accent-primary hover:text-accent-secondary transition-colors duration-300 flex items-center space-x-1"
                     >
                       <i className="fab fa-github"></i>
                       <span>Code</span>
                     </a>
                     <a
                       href="#"
-                      className="text-cyan-400 hover:text-cyan-300 transition-colors duration-300 flex items-center space-x-1"
+                      className="text-accent-primary hover:text-accent-secondary transition-colors duration-300 flex items-center space-x-1"
                     >
                       <i className="fas fa-external-link-alt"></i>
                       <span>Live Demo</span>
@@ -133,7 +133,7 @@ export default function ProjectsSection() {
           <div className="text-center mt-12">
             <a
               href="#"
-              className="inline-flex items-center space-x-2 text-cyan-400 hover:text-cyan-300 transition-colors duration-300 text-lg font-semibold"
+              className="inline-flex items-center space-x-2 text-accent-primary hover:text-accent-secondary transition-colors duration-300 text-lg font-semibold"
             >
               <span>View All Projects</span>
               <i className="fas fa-arrow-right"></i>

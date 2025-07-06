@@ -3,40 +3,41 @@
 @tailwind utilities;
 
 :root {
-  --background: hsl(222, 84%, 5%);
-  --foreground: hsl(210, 40%, 98%);
-  --muted: hsl(217, 32%, 17%);
-  --muted-foreground: hsl(215, 20%, 65%);
-  --popover: hsl(222, 84%, 5%);
-  --popover-foreground: hsl(210, 40%, 98%);
-  --card: hsl(222, 84%, 5%);
-  --card-foreground: hsl(210, 40%, 98%);
-  --border: hsl(217, 32%, 17%);
-  --input: hsl(217, 32%, 17%);
-  --primary: hsl(188, 91%, 56%);
-  --primary-foreground: hsl(222, 84%, 5%);
-  --secondary: hsl(217, 32%, 17%);
-  --secondary-foreground: hsl(210, 40%, 98%);
-  --accent: hsl(217, 32%, 17%);
-  --accent-foreground: hsl(210, 40%, 98%);
+  --background: hsl(0, 0%, 2%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(0, 0%, 8%);
+  --muted-foreground: hsl(0, 0%, 65%);
+  --popover: hsl(0, 0%, 2%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(0, 0%, 2%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(0, 0%, 12%);
+  --input: hsl(0, 0%, 8%);
+  --primary: hsl(300, 100%, 65%);
+  --primary-foreground: hsl(0, 0%, 2%);
+  --secondary: hsl(0, 0%, 8%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(0, 0%, 12%);
+  --accent-foreground: hsl(0, 0%, 98%);
   --destructive: hsl(0, 62%, 30%);
-  --destructive-foreground: hsl(210, 40%, 98%);
-  --ring: hsl(188, 91%, 56%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(300, 100%, 65%);
   --radius: 0.5rem;
   
-  /* Custom portfolio colors */
-  --slate-900: hsl(222, 84%, 5%);
-  --slate-800: hsl(215, 28%, 17%);
-  --slate-700: hsl(215, 20%, 27%);
-  --slate-600: hsl(215, 14%, 34%);
-  --slate-500: hsl(210, 11%, 44%);
-  --slate-400: hsl(215, 16%, 47%);
-  --slate-300: hsl(212, 13%, 65%);
-  --slate-200: hsl(210, 20%, 82%);
-  --slate-50: hsl(210, 40%, 98%);
-  --cyan-400: hsl(188, 91%, 56%);
-  --cyan-500: hsl(188, 98%, 51%);
-  --cyan-600: hsl(186, 100%, 42%);
+  /* Modern black-based portfolio colors */
+  --black-900: hsl(0, 0%, 2%);
+  --black-800: hsl(0, 0%, 5%);
+  --black-700: hsl(0, 0%, 8%);
+  --black-600: hsl(0, 0%, 12%);
+  --black-500: hsl(0, 0%, 16%);
+  --white-100: hsl(0, 0%, 98%);
+  --white-200: hsl(0, 0%, 92%);
+  --white-300: hsl(0, 0%, 85%);
+  --white-400: hsl(0, 0%, 75%);
+  --white-500: hsl(0, 0%, 65%);
+  --accent-primary: hsl(300, 100%, 65%);
+  --accent-secondary: hsl(270, 100%, 75%);
+  --accent-tertiary: hsl(200, 100%, 70%);
 }
 
 .dark {
@@ -67,8 +68,11 @@
   }
   
   body {
-    @apply font-sans antialiased bg-slate-900 text-slate-50;
+    @apply font-sans antialiased;
+    background: linear-gradient(135deg, var(--black-900) 0%, var(--black-800) 50%, var(--black-900) 100%);
+    color: var(--white-100);
     font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100vh;
   }
 
   html {
@@ -89,7 +93,27 @@
     animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
     overflow: hidden;
     white-space: nowrap;
-    border-right: 2px solid hsl(188, 91%, 56%);
+    border-right: 2px solid var(--accent-primary);
+  }
+
+  .glow-effect {
+    box-shadow: 0 0 20px var(--accent-primary), 0 0 40px var(--accent-primary), 0 0 60px var(--accent-primary);
+    animation: glow-pulse 2s ease-in-out infinite alternate;
+  }
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(300, 100%, 65%, 0.2);
   }
 
   @keyframes fadeIn {
@@ -115,90 +139,112 @@
 
   @keyframes blink-caret {
     from, to { border-color: transparent; }
-    50% { border-color: hsl(188, 91%, 56%); }
+    50% { border-color: var(--accent-primary); }
   }
 
-  .bg-slate-900 {
-    background-color: var(--slate-900);
+  @keyframes glow-pulse {
+    0% {
+      box-shadow: 0 0 5px var(--accent-primary), 0 0 10px var(--accent-primary), 0 0 15px var(--accent-primary);
+    }
+    100% {
+      box-shadow: 0 0 10px var(--accent-primary), 0 0 20px var(--accent-primary), 0 0 30px var(--accent-primary);
+    }
+  }
+
+  /* Modern color utilities */
+  .bg-black-900 {
+    background-color: var(--black-900);
   }
   
-  .bg-slate-800 {
-    background-color: var(--slate-800);
+  .bg-black-800 {
+    background-color: var(--black-800);
   }
   
-  .bg-slate-700 {
-    background-color: var(--slate-700);
+  .bg-black-700 {
+    background-color: var(--black-700);
   }
   
-  .text-slate-50 {
-    color: var(--slate-50);
+  .bg-black-600 {
+    background-color: var(--black-600);
   }
   
-  .text-slate-200 {
-    color: var(--slate-200);
+  .bg-black-500 {
+    background-color: var(--black-500);
   }
   
-  .text-slate-300 {
-    color: var(--slate-300);
+  .text-white-100 {
+    color: var(--white-100);
   }
   
-  .text-slate-400 {
-    color: var(--slate-400);
+  .text-white-200 {
+    color: var(--white-200);
   }
   
-  .text-cyan-400 {
-    color: var(--cyan-400);
+  .text-white-300 {
+    color: var(--white-300);
   }
   
-  .text-cyan-500 {
-    color: var(--cyan-500);
+  .text-white-400 {
+    color: var(--white-400);
   }
   
-  .bg-cyan-400 {
-    background-color: var(--cyan-400);
+  .text-white-500 {
+    color: var(--white-500);
   }
   
-  .bg-cyan-500 {
-    background-color: var(--cyan-500);
+  .text-accent-primary {
+    color: var(--accent-primary);
   }
   
-  .bg-cyan-600 {
-    background-color: var(--cyan-600);
+  .text-accent-secondary {
+    color: var(--accent-secondary);
   }
   
-  .border-slate-600 {
-    border-color: var(--slate-600);
+  .text-accent-tertiary {
+    color: var(--accent-tertiary);
   }
   
-  .border-slate-700 {
-    border-color: var(--slate-700);
+  .bg-accent-primary {
+    background-color: var(--accent-primary);
   }
   
-  .border-slate-800 {
-    border-color: var(--slate-800);
+  .bg-accent-secondary {
+    background-color: var(--accent-secondary);
   }
   
-  .border-cyan-400 {
-    border-color: var(--cyan-400);
+  .bg-accent-tertiary {
+    background-color: var(--accent-tertiary);
   }
   
-  .hover\:text-cyan-400:hover {
-    color: var(--cyan-400);
+  .border-black-600 {
+    border-color: var(--black-600);
   }
   
-  .hover\:text-cyan-300:hover {
-    color: hsl(187, 85%, 63%);
+  .border-black-700 {
+    border-color: var(--black-700);
   }
   
-  .hover\:bg-cyan-600:hover {
-    background-color: var(--cyan-600);
+  .border-accent-primary {
+    border-color: var(--accent-primary);
   }
   
-  .hover\:border-cyan-400:hover {
-    border-color: var(--cyan-400);
+  .hover\:text-accent-primary:hover {
+    color: var(--accent-primary);
   }
   
-  .focus\:border-cyan-400:focus {
-    border-color: var(--cyan-400);
+  .hover\:text-accent-secondary:hover {
+    color: var(--accent-secondary);
+  }
+  
+  .hover\:bg-accent-primary:hover {
+    background-color: var(--accent-primary);
+  }
+  
+  .hover\:border-accent-primary:hover {
+    border-color: var(--accent-primary);
+  }
+  
+  .focus\:border-accent-primary:focus {
+    border-color: var(--accent-primary);
   }
 }

@@ -35,7 +35,7 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <div className="bg-slate-900 text-slate-50 font-sans">
+    <div className="bg-black-900 text-white-100 font-sans">
       <Navigation activeSection={activeSection} />
       <HeroSection />
       <AboutSection />
@@ -44,13 +44,13 @@ export default function Portfolio() {
       <ContactSection />
       
       {/* Footer */}
-      <footer className="bg-slate-900 border-t border-slate-800 py-12">
+      <footer className="bg-black-900 border-t border-black-600 py-12">
         <div className="container mx-auto px-6">
           <div className="text-center">
-            <p className="text-slate-400 mb-4">
+            <p className="text-white-400 mb-4">
               © 2024 Alex Chen. All rights reserved.
             </p>
-            <p className="text-slate-500 text-sm">
+            <p className="text-white-500 text-sm">
               Built with ❤️ using React, Express.js, and Tailwind CSS
             </p>
           </div>

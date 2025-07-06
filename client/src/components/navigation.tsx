@@ -23,10 +23,10 @@ export default function Navigation({ activeSection }: NavigationProps) {
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-slate-900/95 backdrop-blur-sm border-b border-slate-800 z-50">
+    <nav className="fixed top-0 w-full glass-effect border-b border-black-600 z-50">
       <div className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
-          <div className="text-xl font-bold text-cyan-400">Alex Chen</div>
+          <div className="text-xl font-bold text-accent-primary glow-effect">Alex Chen</div>
           
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
@@ -35,8 +35,8 @@ export default function Navigation({ activeSection }: NavigationProps) {
                 onClick={() => handleNavClick(item.href)}
                 className={`transition-colors duration-300 ${
                   activeSection === item.href.slice(1)
-                    ? "text-cyan-400"
-                    : "text-slate-300 hover:text-cyan-400"
+                    ? "text-accent-primary"
+                    : "text-white-300 hover:text-accent-primary"
                 }`}
               >
                 {item.label}
@@ -45,7 +45,7 @@ export default function Navigation({ activeSection }: NavigationProps) {
           </div>
           
           <button
-            className="md:hidden text-slate-300 hover:text-cyan-400"
+            className="md:hidden text-white-300 hover:text-accent-primary"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <i className="fas fa-bars text-xl"></i>
@@ -55,7 +55,7 @@ export default function Navigation({ activeSection }: NavigationProps) {
       
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-slate-800/95 backdrop-blur-sm">
+        <div className="md:hidden glass-effect border-t border-black-600">
           <div className="container mx-auto px-6 py-4 space-y-4">
             {navItems.map((item) => (
               <button
@@ -63,8 +63,8 @@ export default function Navigation({ activeSection }: NavigationProps) {
                 onClick={() => handleNavClick(item.href)}
                 className={`block transition-colors duration-300 ${
                   activeSection === item.href.slice(1)
-                    ? "text-cyan-400"
-                    : "text-slate-300 hover:text-cyan-400"
+                    ? "text-accent-primary"
+                    : "text-white-300 hover:text-accent-primary"
                 }`}
               >
                 {item.label}

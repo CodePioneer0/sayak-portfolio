@@ -107,12 +107,12 @@ export default function SkillsSection() {
     return (
       <div className="skill-item">
         <div className="flex justify-between mb-1">
-          <span className="text-slate-300">{skill.name}</span>
-          <span className="text-cyan-400">{skill.level}%</span>
+          <span className="text-white-300">{skill.name}</span>
+          <span className="text-accent-primary">{skill.level}%</span>
         </div>
-        <div className="w-full bg-slate-600 rounded-full h-2">
+        <div className="w-full bg-black-600 rounded-full h-2">
           <div
-            className={`bg-${color}-400 h-2 rounded-full transition-all duration-1000 ease-out`}
+            className="bg-accent-primary h-2 rounded-full transition-all duration-1000 ease-out"
             style={{
               width: isAnimated ? `${skill.level}%` : "0%",
             }}
@@ -123,21 +123,21 @@ export default function SkillsSection() {
   };
 
   return (
-    <section ref={sectionRef} id="skills" className="py-20 bg-slate-800/50">
+    <section ref={sectionRef} id="skills" className="py-20 bg-black-800/50">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-            Technical <span className="text-cyan-400">Skills</span>
+            Technical <span className="text-accent-primary">Skills</span>
           </h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {skillCategories.map((category) => (
               <div
                 key={category.title}
-                className="bg-slate-700/50 p-6 rounded-xl border border-slate-600 hover:border-cyan-400/50 transition-all duration-300"
+                className="glass-effect p-6 rounded-xl border border-black-600 hover:border-accent-primary/50 transition-all duration-300 hover-lift"
               >
                 <div className="flex items-center mb-4">
-                  <i className={`${category.icon} text-cyan-400 text-2xl mr-3`}></i>
+                  <i className={`${category.icon} text-accent-primary text-2xl mr-3`}></i>
                   <h3 className="text-xl font-semibold">{category.title}</h3>
                 </div>
                 <div className="space-y-3">
