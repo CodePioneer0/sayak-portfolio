@@ -20,10 +20,10 @@ export default function HeroSection() {
           <img
             src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=400"
             alt="Alex Chen - CS Engineering Student"
-            className="w-32 h-32 rounded-full mx-auto mb-8 ring-4 ring-accent-primary/30 shadow-2xl animate-fade-in hover-lift"
+            className="w-32 h-32 rounded-full mx-auto mb-8 ring-4 ring-accent-primary/30 shadow-2xl animate-fade-in floating-3d"
           />
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-slide-up">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-slide-up text-3d">
             Hi, I'm <span className="text-accent-primary">Alex Chen</span>
           </h1>
           
@@ -40,7 +40,7 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
             <button
               onClick={() => scrollTo("#projects")}
-              className="bg-accent-primary hover:bg-accent-secondary text-black-900 px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-accent-primary/25 hover-lift"
+              className="button-3d text-black-900 px-8 py-3 rounded-lg font-semibold"
             >
               View My Work
             </button>

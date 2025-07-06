@@ -86,7 +86,7 @@ export default function ProjectsSection() {
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="glass-effect rounded-xl border border-black-600 overflow-hidden group hover:border-accent-primary/50 transition-all duration-300 hover-lift"
+                className="glass-effect rounded-xl border border-black-600 overflow-hidden group hover:border-accent-primary/50 transition-all duration-300 card-3d"
               >
                 <img
                   src={project.image}

@@ -210,7 +210,7 @@ export default function ContactSection() {
                 <Button
                   type="submit"
                   disabled={contactMutation.isPending}
-                  className="w-full bg-accent-primary hover:bg-accent-secondary disabled:bg-black-600 text-black-900 font-semibold py-3 px-6 transition-all duration-300 transform hover:scale-105 disabled:hover:scale-100"
+                  className="w-full button-3d disabled:bg-black-600 text-black-900 font-semibold py-3 px-6 disabled:hover:scale-100"
                 >
                   {contactMutation.isPending ? (
                     <>
