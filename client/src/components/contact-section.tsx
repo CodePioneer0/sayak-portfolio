@@ -2,14 +2,12 @@ import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { insertContactMessageSchema } from "@shared/schema";
-import { apiRequest } from "@/lib/queryClient";
+import { insertContactMessageSchema, type InsertContactMessage } from "@/schemas/contact";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import type { InsertContactMessage } from "@shared/schema";
 
 export default function ContactSection() {
   const { toast } = useToast();
@@ -27,8 +25,12 @@ export default function ContactSection() {
 
   const contactMutation = useMutation({
     mutationFn: async (data: InsertContactMessage) => {
-      const response = await apiRequest("POST", "/api/contact", data);
-      return response.json();
+      // GitHub Pages doesn't support server-side functionality
+      // This is a mock implementation for the static site
+      console.log("Contact form submitted:", data);
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 800));
+      return { success: true };
     },
     onSuccess: () => {
       setShowSuccess(true);
