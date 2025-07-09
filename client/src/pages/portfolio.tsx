@@ -17,8 +17,8 @@ export default function Portfolio() {
       let current = "";
       
       sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.clientHeight;
+        const sectionTop = (section as HTMLElement).offsetTop - 100;
+        const sectionHeight = (section as HTMLElement).clientHeight;
         
         if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
           current = section.getAttribute("id") || "";
@@ -48,10 +48,10 @@ export default function Portfolio() {
         <div className="container mx-auto px-6">
           <div className="text-center">
             <p className="text-white-400 mb-4">
-              © 2024 Alex Chen. All rights reserved.
+              © 2025 Sayak Sen. All rights reserved.
             </p>
             <p className="text-white-500 text-sm">
-              Built with ❤️ using React, Express.js, and Tailwind CSS
+              Built with ❤️ using React, TypeScript and Tailwind CSS
             </p>
           </div>
         </div>

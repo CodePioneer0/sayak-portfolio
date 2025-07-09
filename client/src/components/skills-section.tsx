@@ -38,7 +38,7 @@ export default function SkillsSection() {
         { name: "Node.js", level: 88 },
         { name: "Python", level: 82 },
         { name: "Express.js", level: 85 },
-        { name: "Django", level: 75 },
+        { name: "System Design", level: 75 },
       ],
     },
     {
@@ -48,7 +48,7 @@ export default function SkillsSection() {
       skills: [
         { name: "MongoDB", level: 85 },
         { name: "PostgreSQL", level: 78 },
-        { name: "AWS", level: 72 },
+        { name: "SQL", level: 72 },
         { name: "Docker", level: 80 },
       ],
     },
@@ -60,26 +60,15 @@ export default function SkillsSection() {
         { name: "Git/GitHub", level: 92 },
         { name: "VS Code", level: 95 },
         { name: "Figma", level: 75 },
-        { name: "Agile/Scrum", level: 83 },
+        { name: "Vim/Neovim", level: 83 },
       ],
     },
     {
-      title: "Mobile Development",
-      icon: "fas fa-mobile-alt",
-      color: "red",
-      skills: [
-        { name: "React Native", level: 78 },
-        { name: "Flutter", level: 65 },
-        { name: "Expo", level: 80 },
-        { name: "PWA", level: 85 },
-      ],
-    },
-    {
-      title: "Machine Learning",
+      title: "Data Science & AI",
       icon: "fas fa-robot",
       color: "indigo",
       skills: [
-        { name: "TensorFlow", level: 70 },
+        { name: "Matplotlib", level: 70 },
         { name: "scikit-learn", level: 75 },
         { name: "Pandas", level: 80 },
         { name: "NumPy", level: 85 },

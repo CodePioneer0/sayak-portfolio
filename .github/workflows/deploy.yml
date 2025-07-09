@@ -29,11 +29,12 @@ jobs:
       - name: Build project
         run: npm run build
         
-      - name: Copy CNAME to dist
+      - name: Copy static files to dist
         run: |
           if [ -f CNAME ]; then
             cp CNAME dist/
           fi
+          touch dist/.nojekyll
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

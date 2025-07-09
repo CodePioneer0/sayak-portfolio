@@ -11,24 +11,20 @@ export default function AboutSection() {
             <div>
               <h3 className="text-2xl font-semibold mb-6 text-accent-primary">Education & Background</h3>
               <p className="text-white-300 text-lg leading-relaxed mb-6">
-                I'm currently pursuing my Bachelor's degree in Computer Science Engineering at XYZ University, where I maintain a 3.8 GPA while actively participating in coding competitions and hackathons.
+                I'm currently pursuing my Bachelor's degree in Computer Science Engineering at IIEST,Shibpur, where I maintain a 9+ CGPA while actively participating in coding competitions and hackathons.
               </p>
               <p className="text-white-300 text-lg leading-relaxed mb-8">
-                My journey in programming started in high school, and since then, I've been fascinated by the power of code to solve real-world problems. I specialize in full-stack web development with a particular interest in modern JavaScript frameworks and cloud technologies.
+                My journey in programming started in high school and since then I've been fascinated by the power of code to solve real-world problems. I specialize in full-stack web development with a particular interest in modern JavaScript frameworks and cloud technologies.
               </p>
               
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <i className="fas fa-graduation-cap text-accent-primary text-xl"></i>
-                  <span className="text-white-300">Computer Science Engineering - Expected 2025</span>
+                  <span className="text-white-300">Computer Science Engineering - Expected 2027</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <i className="fas fa-map-marker-alt text-accent-primary text-xl"></i>
-                  <span className="text-white-300">San Francisco, CA</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <i className="fas fa-trophy text-accent-primary text-xl"></i>
-                  <span className="text-white-300">Dean's List 2022-2023</span>
+                  <span className="text-white-300">West Bengal , India</span>
                 </div>
               </div>
             </div>
@@ -44,20 +40,20 @@ export default function AboutSection() {
                 <h4 className="text-xl font-semibold mb-4 text-accent-primary">Current Focus</h4>
                 <ul className="space-y-2 text-white-300">
                   <li className="flex items-center space-x-2">
-                    <i className="fas fa-code text-accent-primary"></i>
+                    <i className="fas fa-laptop-code text-accent-primary"></i>
                     <span>Full-Stack Web Development</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <i className="fas fa-cloud text-accent-secondary"></i>
-                    <span>Cloud Computing & DevOps</span>
+                    <i className="fas fa-network-wired text-accent-secondary"></i>
+                    <span>Data Structure And Algorithms</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <i className="fas fa-mobile-alt text-accent-tertiary"></i>
-                    <span>Mobile App Development</span>
+                    <i className="fas fa-chart-bar text-accent-primary"></i>
+                    <span>Data Science</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <i className="fas fa-robot text-accent-primary"></i>
-                    <span>Machine Learning & AI</span>
+                    <i className="fas fa-cubes text-accent-primary"></i>
+                    <span>Object Oriented Programming</span>
                   </li>
                 </ul>
               </div>

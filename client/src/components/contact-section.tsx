@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { insertContactMessageSchema, type InsertContactMessage } from "@/schemas/contact";
@@ -23,39 +22,52 @@ export default function ContactSection() {
     },
   });
 
-  const contactMutation = useMutation({
-    mutationFn: async (data: InsertContactMessage) => {
-      // GitHub Pages doesn't support server-side functionality
-      // This is a mock implementation for the static site
-      console.log("Contact form submitted:", data);
-      // Simulate API delay
-      await new Promise(resolve => setTimeout(resolve, 800));
-      return { success: true };
-    },
-    onSuccess: () => {
-      setShowSuccess(true);
-      form.reset();
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for your message. I'll get back to you soon.",
-      });
-      
-      setTimeout(() => {
-        setShowSuccess(false);
-      }, 5000);
-    },
-    onError: (error: any) => {
-      console.error("Contact form error:", error);
-      toast({
-        title: "Failed to send message",
-        description: "Please try again later or contact me directly.",
-        variant: "destructive",
-      });
-    },
-  });
+  // Using Formspree - this will send form data to your sayaksen8017@gmail.com email
+  // Formspree ID: mjkrqzoj
 
   const onSubmit = (data: InsertContactMessage) => {
-    contactMutation.mutate(data);
+    console.log("Submitting form to Formspree with data:", data);
+    
+    // Using direct fetch API as a more reliable method
+    fetch("https://formspree.io/f/mjkrqzoj", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then(response => {
+        console.log("Formspree response status:", response.status);
+        
+        if (!response.ok) {
+          throw new Error(`Formspree submission failed with status ${response.status}`);
+        }
+        
+        return response.json();
+      })
+      .then(responseData => {
+        console.log("Formspree success response:", responseData);
+        
+        setShowSuccess(true);
+        form.reset();
+        toast({
+          title: "Message sent successfully!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        });
+        
+        setTimeout(() => {
+          setShowSuccess(false);
+        }, 5000);
+      })
+      .catch((error) => {
+        console.error("Contact form error:", error);
+        
+        toast({
+          title: "Failed to send message",
+          description: "Please try again later or contact me directly.",
+          variant: "destructive",
+        });
+      });
   };
 
   return (
@@ -71,7 +83,7 @@ export default function ContactSection() {
             <div>
               <h3 className="text-2xl font-semibold mb-6 text-accent-primary">Let's Connect</h3>
               <p className="text-white-300 text-lg leading-relaxed mb-8">
-                I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology. Feel free to reach out!
+                I'm always open to discussing new opportunities, interesting projects or just having a chat about technology. Feel free to reach out!
               </p>
               
               <div className="space-y-6">
@@ -81,7 +93,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <p className="text-white-400 text-sm">Email</p>
-                    <p className="text-white-200">alex.chen@email.com</p>
+                    <p className="text-white-200">sayaksen8017@gmail.com</p>
                   </div>
                 </div>
                 
@@ -91,7 +103,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <p className="text-white-400 text-sm">Phone</p>
-                    <p className="text-white-200">+1 (555) 123-4567</p>
+                    <p className="text-white-200">+91 8017482733</p>
                   </div>
                 </div>
                 
@@ -101,42 +113,47 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <p className="text-white-400 text-sm">Location</p>
-                    <p className="text-white-200">San Francisco, CA</p>
+                    <p className="text-white-200">West Bengal , India</p>
                   </div>
                 </div>
               </div>
               
               <div className="flex space-x-4 mt-8">
                 <a
-                  href="#"
+                  href="https://github.com/CodePioneer0"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-12 h-12 bg-black-700 hover:bg-accent-primary rounded-lg flex items-center justify-center transition-colors duration-300"
                 >
                   <i className="fab fa-github text-xl"></i>
                 </a>
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/sayak-sen-8a112412b/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-12 h-12 bg-black-700 hover:bg-accent-primary rounded-lg flex items-center justify-center transition-colors duration-300"
                 >
                   <i className="fab fa-linkedin text-xl"></i>
                 </a>
                 <a
-                  href="#"
+                  href="https://x.com/LazyChief0"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-12 h-12 bg-black-700 hover:bg-accent-primary rounded-lg flex items-center justify-center transition-colors duration-300"
                 >
                   <i className="fab fa-twitter text-xl"></i>
-                </a>
-                <a
-                  href="#"
-                  className="w-12 h-12 bg-black-700 hover:bg-accent-primary rounded-lg flex items-center justify-center transition-colors duration-300"
-                >
-                  <i className="fas fa-envelope text-xl"></i>
                 </a>
               </div>
             </div>
             
             {/* Contact Form */}
             <div className="glass-effect p-8 rounded-xl border border-black-600 hover-lift">
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form 
+                onSubmit={form.handleSubmit(onSubmit)} 
+                className="space-y-6"
+                action="https://formspree.io/f/mjkrqzoj"
+                method="POST"
+              >
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <Label htmlFor="name" className="text-white-300 text-sm font-medium mb-2">
@@ -145,7 +162,7 @@ export default function ContactSection() {
                     <Input
                       id="name"
                       {...form.register("name")}
-                      className="bg-black-700/50 border-black-600 text-white-200 focus:border-accent-primary"
+                      className="bg-black-700/50 border-black-600 text-accent-primary focus:border-accent-primary"
                       placeholder="Your Name"
                     />
                     {form.formState.errors.name && (
@@ -163,7 +180,7 @@ export default function ContactSection() {
                       id="email"
                       type="email"
                       {...form.register("email")}
-                      className="bg-black-700/50 border-black-600 text-white-200 focus:border-accent-primary"
+                      className="bg-black-700/50 border-black-600 text-accent-primary focus:border-accent-primary"
                       placeholder="your.email@example.com"
                     />
                     {form.formState.errors.email && (
@@ -181,7 +198,7 @@ export default function ContactSection() {
                   <Input
                     id="subject"
                     {...form.register("subject")}
-                    className="bg-black-700/50 border-black-600 text-white-200 focus:border-accent-primary"
+                    className="bg-black-700/50 border-black-600 text-accent-primary focus:border-accent-primary"
                     placeholder="Project Inquiry"
                   />
                   {form.formState.errors.subject && (
@@ -199,7 +216,7 @@ export default function ContactSection() {
                     id="message"
                     rows={5}
                     {...form.register("message")}
-                    className="bg-black-700/50 border-black-600 text-white-200 focus:border-accent-primary resize-none"
+                    className="bg-black-700/50 border-black-600 text-accent-primary focus:border-accent-primary resize-none"
                     placeholder="Tell me about your project or just say hello..."
                   />
                   {form.formState.errors.message && (
@@ -211,10 +228,10 @@ export default function ContactSection() {
                 
                 <Button
                   type="submit"
-                  disabled={contactMutation.isPending}
+                  disabled={form.formState.isSubmitting}
                   className="w-full button-3d disabled:bg-black-600 text-black-900 font-semibold py-3 px-6 disabled:hover:scale-100"
                 >
-                  {contactMutation.isPending ? (
+                  {form.formState.isSubmitting ? (
                     <>
                       <i className="fas fa-spinner fa-spin mr-2"></i>
                       Sending...

@@ -2,76 +2,60 @@ export default function ProjectsSection() {
   const projects = [
     {
       id: 1,
-      title: "ShopSphere",
-      description: "A full-stack e-commerce platform with user authentication, payment integration, and admin dashboard. Built with modern web technologies.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
+      title: "Google Sheets to PDF Invoice Automation",
+      description: "Developed a Node.js application to automate the generation of PDF invoices for society payments using data retrieved from Google Sheets.",
+      image: "https://images.unsplash.com/photo-1633412802994-5c058f151b66?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
+      github: "https://github.com/CodePioneer0/Google-Sheets",
+      liveDemo: "",
       technologies: [
-        { name: "React", color: "bg-blue-600/20 text-blue-400" },
+        { name: "Google Sheets Api", color: "bg-blue-600/20 text-blue-400" },
         { name: "Node.js", color: "bg-green-600/20 text-green-400" },
-        { name: "MongoDB", color: "bg-yellow-600/20 text-yellow-400" },
-        { name: "Stripe", color: "bg-purple-600/20 text-purple-400" },
+        { name: "Nodemailer.js", color: "bg-yellow-600/20 text-yellow-400" },
+        { name: "PDFkit.js", color: "bg-purple-600/20 text-purple-400" },
       ],
     },
     {
       id: 2,
-      title: "TaskFlow",
-      description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
+      title: "Listly",
+      description: "Built a full-stack React.js task management app with CRUD operations, priority levels, and status filtering features.",
+      image: "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
+      github: "https://github.com/CodePioneer0/TaskFlow",
+      liveDemo: "https://listly-a-task-planner.vercel.app",
       technologies: [
-        { name: "Vue.js", color: "bg-blue-600/20 text-blue-400" },
-        { name: "Laravel", color: "bg-red-600/20 text-red-400" },
-        { name: "MySQL", color: "bg-orange-600/20 text-orange-400" },
-        { name: "Socket.io", color: "bg-teal-600/20 text-teal-400" },
+        { name: "React.js", color: "bg-blue-600/20 text-blue-400" },
+        { name: "HTML", color: "bg-red-600/20 text-red-400" },
+        { name: "CSS", color: "bg-orange-600/20 text-orange-400" },
+        { name: "Javascript", color: "bg-teal-600/20 text-teal-400" },
       ],
     },
     {
       id: 3,
-      title: "WeatherWise",
-      description: "A responsive weather dashboard with interactive charts, location-based forecasts, and severe weather alerts using real-time API data.",
+      title: "ClimateCompass",
+      description: "ClimateCompass is a modern weather application designed to provide users with real-time weather information and forecasts. Built using HTML, CSS, JavaScript and RapidApi this app offers a seamless and intuitive user experience.",
       image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
+      github: "https://github.com/CodePioneer0/ClimateCompass---A-Weather-WebApp",
+      liveDemo: "https://climate-compass-a-weather-web-app.vercel.app",
       technologies: [
         { name: "JavaScript", color: "bg-yellow-600/20 text-yellow-400" },
-        { name: "Chart.js", color: "bg-red-600/20 text-red-400" },
-        { name: "OpenWeather API", color: "bg-blue-600/20 text-blue-400" },
-        { name: "PWA", color: "bg-purple-600/20 text-purple-400" },
+        { name: "HTML", color: "bg-red-600/20 text-red-400" },
+        { name: "Rapid API", color: "bg-blue-600/20 text-blue-400" },
+        { name: "BootStrap", color: "bg-purple-600/20 text-purple-400" },
       ],
     },
     {
       id: 4,
-      title: "SocialInsights",
-      description: "A comprehensive social media analytics platform with sentiment analysis, engagement tracking, and automated reporting features.",
-      image: "https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
+      title: "StreamVibes",
+      description: "Designed a backend of a social media like youtube platform that provides real-time video streaming, user authentication, playlist management, tweeting, and comment features.",
+      image: "https://images.unsplash.com/photo-1610433572201-110753c6cff9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
+      github: "https://github.com/CodePioneer0/Backend-repo",
+      liveDemo: "",
       technologies: [
-        { name: "Python", color: "bg-green-600/20 text-green-400" },
-        { name: "Django", color: "bg-blue-600/20 text-blue-400" },
-        { name: "TensorFlow", color: "bg-purple-600/20 text-purple-400" },
-        { name: "Redis", color: "bg-red-600/20 text-red-400" },
+        { name: "Node.js", color: "bg-green-600/20 text-green-400" },
+        { name: "MongoDB", color: "bg-blue-600/20 text-blue-400" },
+        { name: "Express.js", color: "bg-purple-600/20 text-purple-400" },
+        { name: "React.js", color: "bg-red-600/20 text-red-400" },
       ],
-    },
-    {
-      id: 5,
-      title: "FitTrack Pro",
-      description: "A mobile-first fitness tracking application with workout logging, progress visualization, and social sharing capabilities.",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
-      technologies: [
-        { name: "React Native", color: "bg-blue-600/20 text-blue-400" },
-        { name: "Express.js", color: "bg-green-600/20 text-green-400" },
-        { name: "Firebase", color: "bg-yellow-600/20 text-yellow-400" },
-        { name: "Chart.js", color: "bg-purple-600/20 text-purple-400" },
-      ],
-    },
-    {
-      id: 6,
-      title: "CodeCollab",
-      description: "A real-time collaborative code editor with syntax highlighting, version control integration, and video chat functionality for pair programming.",
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
-      technologies: [
-        { name: "Next.js", color: "bg-orange-600/20 text-orange-400" },
-        { name: "Socket.io", color: "bg-teal-600/20 text-teal-400" },
-        { name: "Monaco Editor", color: "bg-gray-600/20 text-gray-400" },
-        { name: "WebRTC", color: "bg-blue-600/20 text-blue-400" },
-      ],
-    },
+    }
   ];
 
   return (
@@ -111,19 +95,25 @@ export default function ProjectsSection() {
                   
                   <div className="flex space-x-4">
                     <a
-                      href="#"
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-accent-primary hover:text-accent-secondary transition-colors duration-300 flex items-center space-x-1"
                     >
                       <i className="fab fa-github"></i>
                       <span>Code</span>
                     </a>
-                    <a
-                      href="#"
-                      className="text-accent-primary hover:text-accent-secondary transition-colors duration-300 flex items-center space-x-1"
-                    >
-                      <i className="fas fa-external-link-alt"></i>
-                      <span>Live Demo</span>
-                    </a>
+                    {project.liveDemo && (
+                      <a
+                        href={project.liveDemo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-accent-primary hover:text-accent-secondary transition-colors duration-300 flex items-center space-x-1"
+                      >
+                        <i className="fas fa-external-link-alt"></i>
+                        <span>Live Demo</span>
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
@@ -132,7 +122,9 @@ export default function ProjectsSection() {
           
           <div className="text-center mt-12">
             <a
-              href="#"
+              href="https://github.com/CodePioneer0?tab=repositories"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 text-accent-primary hover:text-accent-secondary transition-colors duration-300 text-lg font-semibold"
             >
               <span>View All Projects</span>

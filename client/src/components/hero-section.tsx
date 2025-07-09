@@ -17,19 +17,21 @@ export default function HeroSection() {
       
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
-          <img
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=400"
-            alt="Alex Chen - CS Engineering Student"
-            className="w-32 h-32 rounded-full mx-auto mb-8 ring-4 ring-accent-primary/30 shadow-2xl animate-fade-in floating-3d"
-          />
+          <div className="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-4 border-accent-primary shadow-2xl">
+            <img
+              src="/profile.jpeg"
+              alt="Sayak Sen - CS Engineering Student"
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
           
           <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-slide-up text-3d">
-            Hi, I'm <span className="text-accent-primary">Alex Chen</span>
+            Hi, I'm <span className="text-accent-primary">Sayak Sen</span>
           </h1>
           
-          <div className="text-xl md:text-2xl text-white-300 mb-8 h-8 overflow-hidden">
-            <div className="animate-typing whitespace-nowrap">
-              CS Engineering Student & Web Developer
+          <div className="text-xl md:text-2xl text-white-300 mb-8">
+            <div>
+              CS Engineering Student
             </div>
           </div>
           
@@ -54,28 +56,31 @@ export default function HeroSection() {
           
           <div className="flex justify-center space-x-6 mt-12">
             <a
-              href="#"
+              href="https://github.com/CodePioneer0"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-white-400 hover:text-accent-primary text-2xl transition-colors duration-300 transform hover:scale-110"
+              aria-label="GitHub Profile"
             >
               <i className="fab fa-github"></i>
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/sayak-sen-8a112412b/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-white-400 hover:text-accent-primary text-2xl transition-colors duration-300 transform hover:scale-110"
+              aria-label="LinkedIn Profile"
             >
               <i className="fab fa-linkedin"></i>
             </a>
             <a
-              href="#"
+              href="https://x.com/LazyChief0"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-white-400 hover:text-accent-primary text-2xl transition-colors duration-300 transform hover:scale-110"
+              aria-label="Twitter Profile"
             >
               <i className="fab fa-twitter"></i>
-            </a>
-            <a
-              href="#"
-              className="text-white-400 hover:text-accent-primary text-2xl transition-colors duration-300 transform hover:scale-110"
-            >
-              <i className="fas fa-envelope"></i>
             </a>
           </div>
         </div>
